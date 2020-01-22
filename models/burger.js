@@ -8,7 +8,6 @@ module.exports = function (sequelize, DataTypes) {
         len: [1, 20]
       }
     },
-
     devoured: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
