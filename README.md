@@ -3,7 +3,7 @@
 This app tracks new burgers entered by the user. The user can then send them to the "devoured" side or delete the burgers. Burger data is stored with MySQL.
 
 ## Deployed on Heroku 
-Link Coming Soon!!
+https://afternoon-inlet-06638.herokuapp.com/
 
 
 ## Tools Used: 
