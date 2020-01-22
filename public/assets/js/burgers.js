@@ -5,13 +5,15 @@ $(function () {
   $('.change-devour').on('click', function (event) {
     var id = $(this).data('id');
     var newDevour = $(this).data('newdevour');
-
+    console.log('id', id);
+    console.log(' newDevour', newDevour);
     var newDevourState = {
-      devoured: newDevour
+      devoured: newDevour,
+      id: id
     };
 
     // Send the PUT request
-    $.ajax('/api/burgers/' + id, {
+    $.ajax('/api/burgers/', {
       type: 'PUT',
       data: newDevourState
     }).then(

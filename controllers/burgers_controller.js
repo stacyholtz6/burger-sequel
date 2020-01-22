@@ -11,16 +11,20 @@ var db = require('../models/');
 router.get('/', function (req, res) {
   db.Burger.findAll({})
     .then(function (data) {
-      console.log(data)
+      var plainData = JSON.parse(JSON.stringify(data));
+      console.log('plainData', plainData);
+      // console.log(data)
       var hbsObj = {
-        burger: data
+        burgers: plainData
       };
-      return res.render('index', hbsObj)
+      console.log('hbsObj from controllers', hbsObj);
+      res.render('index', hbsObj)
+
     });
 });
 
 // post route - create burger - sequelize format ✅ 
-router.post('/api/burger', function (req, res) {
+router.post('/api/burgers', function (req, res) {
   db.Burger.create({
     burger_name: req.body.burger_name,
     devoured: req.body.devoured
@@ -31,8 +35,9 @@ router.post('/api/burger', function (req, res) {
 
 // put route - sequelize ✅ 
 router.put('/api/burgers', function (req, res) {
+  console.log('req.body', req.body);
   db.Burger.update({
-    burger_name: req.body.burger_name,
+    // burger_name: req.body.burger_name,
     devoured: req.body.devoured
   }, {
     where: {
